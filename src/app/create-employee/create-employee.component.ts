@@ -34,7 +34,7 @@ export class CreateEmployeeComponent implements OnInit {
 
 	}
 
-  onSubmit() {
+  onSubmit(form) {
     this.submitted = true;
     this.save();    
   }

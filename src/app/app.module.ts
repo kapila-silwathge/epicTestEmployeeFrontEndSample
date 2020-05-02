@@ -12,6 +12,7 @@ import { LoginComponent } from './login/login.component';
 import { BasicAuthInterceptorService } from './basic-auth-interceptor.service';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { LogoutComponent } from './logout/logout.component';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { LogoutComponent } from './logout/logout.component';
     EmployeeListComponent,
     UpdateEmployeeComponent,
     LoginComponent,
-    LogoutComponent   
+    LogoutComponent,
+    MenuComponent   
   ],
   imports: [
     BrowserModule,
