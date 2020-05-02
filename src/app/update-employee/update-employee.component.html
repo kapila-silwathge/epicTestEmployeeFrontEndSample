@@ -1,21 +1,44 @@
 <h3>Update Employee</h3>
 <div [hidden]="submitted" style="width: 400px;">
-  <form (ngSubmit)="onSubmit()">
+  <form #userForm="ngForm" (ngSubmit)="userForm.form.valid && onSubmit()">
     <div class="form-group">
       <label for="name">First Name</label>
-      <input type="text" class="form-control" id="firstName" required [(ngModel)]="employee.firstName" name="firstName">
+      <input type="text" class="form-control" id="firstName" 
+      [(ngModel)]="employee.firstName" name="firstName" #name="ngModel"
+      [ngClass]="{ 'is-invalid': userForm.submitted && name.invalid }" required >
+      <div class="invalid-feedback" *ngIf="userForm.submitted && name.invalid">
+      <p *ngIf="name.errors.required">First Name is required</p>
+      </div>
     </div>
 
     <div class="form-group">
       <label for="name">Last Name</label>
-      <input type="text" class="form-control" id="lastName" required [(ngModel)]="employee.lastName" name="lastName">
+      <input type="text" class="form-control" id="lastName"  
+      [(ngModel)]="employee.lastName" name="lastName" #lastName="ngModel"
+      [ngClass]="{ 'is-invalid': userForm.submitted && lastName.invalid }" required>
+      <div class="invalid-feedback" *ngIf="userForm.submitted && lastName.invalid">
+      <p *ngIf="name.errors.required">Last Name is required</p>
+      </div>
     </div>
 
     <div class="form-group">
-      <label for="name">First Name</label>
-      <input type="text" class="form-control" id="emailId" required [(ngModel)]="employee.emailId" name="emailId">
+      <label for="name">Email</label>
+      <input type="text" class="form-control" id="emailId" 
+       [(ngModel)]="employee.emailId" name="emailId"  #emailId="ngModel"
+      [ngClass]="{ 'is-invalid': userForm.submitted && emailId.invalid }" email required>
+      
+      <div *ngIf="userForm.submitted && emailId.invalid" class="invalid-feedback">
+      <div *ngIf="emailId.errors.required">Email is required</div>
+      <div *ngIf="emailId.errors.email">Must be a valid email address</div>
+    </div>
     </div>
 
     <button type="submit" class="btn btn-success">Submit</button>
+    <button (click)="gotoList()" class="btn btn-primary">Cancel</button><br>
   </form>
+</div>
+
+<div [hidden]="!submitted">
+  <h4>You submitted successfully!</h4>
+  <!-- <button class="btn btn-success" (click)="newEmployee()">Add</button> -->
 </div>
