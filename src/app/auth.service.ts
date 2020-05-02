@@ -9,14 +9,19 @@ import { BehaviorSubject, Observable } from 'rxjs';
 export class AuthenticationService {
 
   // BASE_PATH: 'http://localhost:8080'
-  USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser'
+  USER_NAME_SESSION_ATTRIBUTE_NAME = 'authenticatedUser';
+  PASS_SESSION_ATTRIBUTE_NAME = 'userid';
 
   public username: String;
   public password: String;
   private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
 	
-  constructor(private http: HttpClient) {
-
+  constructor(private http: HttpClient) {	
+    if (sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME) !== null){   
+     	this.loggedIn.next(true);
+     	this.username = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+        this.password = sessionStorage.getItem(this.PASS_SESSION_ATTRIBUTE_NAME);          	
+     }
   }
 
   authenticationService(username: String, password: String) {
@@ -35,10 +40,12 @@ export class AuthenticationService {
 
   registerSuccessfulLogin(username, password) {
     sessionStorage.setItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME, username)
+    sessionStorage.setItem(this.PASS_SESSION_ATTRIBUTE_NAME, password)
   }
 
   logout() {
     sessionStorage.removeItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME);
+    sessionStorage.removeItem(this.PASS_SESSION_ATTRIBUTE_NAME);
     this.username = null;
     this.password = null;
   }
