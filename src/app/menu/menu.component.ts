@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { AuthenticationService } from '../auth.service';
 import { OnInit } from '@angular/core'
 import { ActivatedRoute, Router } from '@angular/router';
+ import { BehaviorSubject, Observable } from 'rxjs';
 
 @Component({
   selector: 'app-menu',
@@ -9,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
- isLoggedIn = true;
+ isLoggedIn  : Observable<boolean>;
   constructor(private route: ActivatedRoute,
         private router: Router,
         private authenticationService: AuthenticationService) { }

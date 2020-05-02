@@ -1,6 +1,8 @@
 <div class="panel panel-primary">
-  <div class="panel-heading">
-    <h2>Employee List</h2>
+  <div class="panel-heading clearfix">
+    <h2>Employee List
+   <span *ngIf="isLoggedIn | async" > <button (click)="addEmployee()" class="btn btn-success" style="margin-left: 50px">Add Employee</button> </span>
+   </h2>
   </div>
   <div class="panel-body">
     <table class="table table-striped">

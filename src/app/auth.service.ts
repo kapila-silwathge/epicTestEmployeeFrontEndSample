@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { map } from 'rxjs/operators';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +13,8 @@ export class AuthenticationService {
 
   public username: String;
   public password: String;
-
+  private loggedIn: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+	
   constructor(private http: HttpClient) {
 
   }
@@ -23,6 +25,7 @@ export class AuthenticationService {
         this.username = username;
         this.password = password;
         this.registerSuccessfulLogin(username, password);
+        this.loggedIn.next(true);
       }));
   }
 
@@ -42,8 +45,11 @@ export class AuthenticationService {
 
   isUserLoggedIn() {
     let user = sessionStorage.getItem(this.USER_NAME_SESSION_ATTRIBUTE_NAME)
-    if (user === null) return false
-    return true
+    if (user === null){
+     	return this.loggedIn.asObservable();
+     } else{
+    	return this.loggedIn.asObservable();
+     }
   }
 
   getLoggedInUserName() {
