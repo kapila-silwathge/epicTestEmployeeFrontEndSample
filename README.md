@@ -5,6 +5,6 @@ This Epic Test Employee Front consumes [Rest API](https://github.com/kapila-silw
 
 ## Loging Credentials
 
-  user name     : epictest  
+ *  user name     : epictest  
   
-  user password : password
+ *  user password : password
