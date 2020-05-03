@@ -25,7 +25,7 @@ export class AuthenticationService {
   }
 
   authenticationService(username: String, password: String) {
-    return this.http.get(`http://localhost:8080/employee/api/v1/basicauth`,
+    return this.http.get(`http://localhost:8080/auth/api/v1/basicauth`,
       { headers: { authorization: this.createBasicAuthToken(username, password) } }).pipe(map((res) => {
         this.username = username;
         this.password = password;
