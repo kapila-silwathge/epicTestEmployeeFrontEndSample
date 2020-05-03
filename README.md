@@ -1,6 +1,6 @@
 # EpicTestEmployeeFrontEndSample
 
-epic tech test - practicle coding challenge : Front-end
+epic tech test - practical coding challenge : Front-end
 
 Angular 9,8 + Bootstrap + ngForm Validation + basicauth
 
