@@ -1,5 +1,10 @@
 # EpicTestEmployeeFrontEndSample
 
+epic tech test - practicle coding challenge : Front-end
+
+Angular 9,8 + Bootstrap + ngForm Validation + basicauth
+
+
 ## Rest API
 This Epic Test Employee Front End consumes [Rest API](https://github.com/kapila-silwathge/epicTestEmployeeRestAPISample) running on localhost:8080
 
