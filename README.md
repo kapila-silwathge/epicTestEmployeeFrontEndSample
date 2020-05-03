@@ -2,7 +2,7 @@
 
 epic tech test - practical coding challenge : Front-end
 
-Angular 9,8 + Bootstrap + ngForm Validation + basicauth
+Angular 9,8 + Bootstrap + ngForm Validation + Basicauth Login/Logout 
 
 
 ## Consumes Rest API
