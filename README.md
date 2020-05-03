@@ -8,3 +8,22 @@ This Epic Test Employee Front End consumes [Rest API](https://github.com/kapila-
  *  user name     : epictest  
   
  *  user password : password
+ 
+ ## Highlights
+ 
+ * Login session is preserved upon page refresh
+ 
+ * Unauthorized access to URIs are redirected to login page
+ 
+ * Bootstrap is used for UI
+ 
+ * Form field validation and validation feedback is displayed to user
+ 
+ * List page is loaded with uptodate data from db ( even after update and add)
+ 
+ * Menu bar is dynamically changed upon login
+ 
+ * Authorization is enforced with an intercepter implementation
+  
+ * Started this challenge with zero knowledge on Angular :-)
+ 
